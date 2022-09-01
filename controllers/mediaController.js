@@ -10,6 +10,16 @@ exports.getAll = async (req, res) => {
     res.status(400).json(error);
   }
 };
+exports.deleteImage = async (req, res) => {
+  try {
+    const media = await Media.deleteOne({_id:req.params.id});
+    console.log(media,req.params.id,"mediaaa")
+    res.json(media);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
+};
 // Backendurl/public/videos/file_name.mp4
 exports.create = async (req, res) => {
   const { name } = req.body;

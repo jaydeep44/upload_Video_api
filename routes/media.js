@@ -38,6 +38,8 @@ const router = express.Router();
 
 //get all media
 router.get("/all", mediaController.getAll);
+router.delete("/all/delete/:id", mediaController.deleteImage);
+
 
 //post create new media
 router.post(

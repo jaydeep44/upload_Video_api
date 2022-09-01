@@ -12,10 +12,11 @@ const mediaRoutes = require("./routes/media");
 app.use("/api/v1/media", mediaRoutes);
 app.use("/public", express.static(path.join(__dirname, "public")));
 
-const mongodbUri = "mongodb://localhost:27017/uploadproject";
+const mongodbUri = "mongodb+srv://dbUser:dbPassword@cluster0.onkep.mongodb.net/practice?retryWrites=true&w=majority";
 
 mongoose.connect(mongodbUri, {
   useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 mongoose.connection.on("connected", () => {
